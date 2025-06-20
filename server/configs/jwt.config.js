@@ -8,15 +8,7 @@ const jwt = require("jsonwebtoken");
 }
 
 
-const verifyAuthToken = (token) => {
-    try {
-      return jwt.verify(token, process.env.JWT_SECRET);
-    } catch (error) {
-      throw new Error("Invalid token");
-    }
-  };
 
 module.exports = {
-  generateAuthToken,
-  verifyAuthToken
+  generateAuthToken
 };

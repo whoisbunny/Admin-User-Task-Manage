@@ -22,20 +22,6 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-// Role-Based Access Control Middleware
-const verifyRole =
-  (...allowedRoles) =>
-  (req, res, next) => {
-    if (!allowedRoles.includes(req.user.role)) {
-      console.log("problem in back auth");
-      return res
-        .status(403)
-        .json({ message: "Access denied: Insufficient permissions" });
-    }
-    next();
-  };
-
 module.exports = {
   authMiddleware,
-  verifyRole,
 };
